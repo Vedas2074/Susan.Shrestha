@@ -61,7 +61,7 @@ class Methods
 
     void PrintCustomerDetails(string name, string address, byte age, bool isMale)
     {
-        Console.WriteLine($"{name}[{age}], {address}");
+        Console.WriteLine($"{name}, {age}, {address}");
     }
 
     float Subtract(float firstNum, float secondNum) => firstNum - secondNum; // Expresson bodied method syntax, if only one line code is there in a function then the function can be used in this way
