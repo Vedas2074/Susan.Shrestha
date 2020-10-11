@@ -1,24 +1,29 @@
 using System;
 using System.Linq;
+namespace AccessModifierAndMethods
+{
 class Methods
 {
-    void PrintInfo()
+    public void PrintInfo()
     {
         Console.WriteLine("Printing Something...");
     }
-     void PrintingSomething(string message)
+    public void PrintingSomething(string message)
     {
         Console.WriteLine(message);
         Multiply(2.3f, 3.3f);
         Multiply(2.3f, 3.4f, 3.3f);
         Sum(2.3, 2.4, 2.3f, 3.4f, 3.3f, 2.3f, 3.4f, 3.3f);
-        GetGreetings("Sushika", "Miss");
-        GetGreetings("Susan");
+        Console.WriteLine(GetGreetings("Sushika", "Miss"));
+        Console.WriteLine(GetGreetings("Susan"));
 
         byte[] numbers = {56, 32, 255, 3, 67, 33, 36, 33, 234};
         (byte Max, byte Min) result = FindMinMax(numbers);
+        Console.WriteLine(result.Max);
+        Console.WriteLine(result.Min);
+        Console.WriteLine(result);
         //named arguments
-        PrintCustomerDetails(age:21, name:"Susan", true, address:"Thankot"); 
+       // PrintCustomerDetails(age:19, name:"Susan", true, address:"Thankot"); 
     }
 
     float Multiply(float firstNum, float secondNum)
@@ -44,7 +49,7 @@ class Methods
     }
 
     //Optional argument
-    string GetGreetings(string name, string prefix = "Mr") //string prifix is a optional argument, if no argument is sent then the default value is Mr
+    public string GetGreetings(string name, string prefix = "Mr") //string prifix is a optional argument, if no argument is sent then the default value is Mr
     {
         string fullName = $"{prefix}, {name}"; // string interpolation
         //string fullName = prefix + ", " + name; This can also be used for concadination
@@ -59,10 +64,11 @@ class Methods
         return(max, min);
     }
 
-    void PrintCustomerDetails(string name, string address, byte age, bool isMale)
+    void PrintCustomerDetails(string name, string address, int age, bool isMale)
     {
         Console.WriteLine($"{name}, {age}, {address}");
     }
 
     float Subtract(float firstNum, float secondNum) => firstNum - secondNum; // Expresson bodied method syntax, if only one line code is there in a function then the function can be used in this way
+}
 }

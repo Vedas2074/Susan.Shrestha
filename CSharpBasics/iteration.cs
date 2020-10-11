@@ -1,12 +1,12 @@
 using System;
 class IterationStatement
 {
-    static void Main()
-    {
-        IterationStatement iterationStatement = new IterationStatement();
-        iterationStatement.LearnForLoops();
-        iterationStatement.LearnWhileLoops();
-    }
+    // static void Main()
+    // {
+    //     IterationStatement iterationStatement = new IterationStatement();
+    //     iterationStatement.LearnForLoops();
+    //     iterationStatement.LearnWhileLoops();
+    // }
     void LearnForLoops()
     {
         //For loop cannot be used if we dont know the upper bound.
