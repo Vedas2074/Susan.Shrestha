@@ -1,4 +1,4 @@
-class Person
+class Human
 {
     // string name;
     int age = 23;
