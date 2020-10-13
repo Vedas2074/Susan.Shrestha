@@ -1,12 +1,13 @@
 using System;
 namespace LearningClasses
 {
-    internal class Person
+    public class Person
     {
         int x;
         public string Name { get; set; }
         public string Address { get; set; }
-        public byte age { get; set; }
+        public byte Age { get; set; }
+        public static string ScientificName = "Homo-Sapiens";
         public Person() //Default parameterless constructor
         {
             x = 10;
@@ -17,11 +18,16 @@ namespace LearningClasses
         {
             this.Name = n; //Represents current object of class
             this.Address = add;
-            this.age = age;
+            this.Age = age;
         }
         public void Display()
         {
             Console.WriteLine($"The value of x is {x}");
+        }
+
+        public static void Do()
+        {
+            
         }
     }
 
