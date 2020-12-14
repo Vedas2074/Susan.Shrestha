@@ -2,6 +2,8 @@ namespace AccessModifierAndMethods
 {
 class AccessModifier // default accessmodifier of class is internal
 {
+    public int x;
+    public int y;
    internal void DoSomething() //accessable inside a project, function default accessmodifier is private
     {
 

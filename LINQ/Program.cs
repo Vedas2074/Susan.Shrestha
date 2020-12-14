@@ -1,7 +1,7 @@
-﻿using System;
+﻿  
+using System;
 using System.Linq;
-using Persons;
-
+using System.Collections.Generic;
 
 namespace LINQ
 {
@@ -9,67 +9,68 @@ namespace LINQ
     {
         static void Main(string[] args)
         {
-            //LINQ - Language Integrated Query
-            int[] numbers = {1, 3, 4, 5, 6, 13, 21};
+            // LINQ - Language INtegrated Query
+            int[] numbers = { 23, 45, 67, 12, 34, 45, 78, 90, 11, 14, 16, 27 };
+            //Find all the elements from numbers array which are less than 75 and greater than 20
 
-            //Find all the elements from number which are less than 20 and greater than 1
-            //Using method syntax - lambda expression
-            var result = numbers.Where(x => x < 20 && x > 1);
+            // Using method syntax - lambda expression
+            var result1 = numbers.Where(x => x < 75 && x > 20);
 
-            //Query syntax - Query expression
-            var result2 = from x in numbers 
-                            where x < 20 && x > 1
-                            select x;
-            string[] names = { "Susan", "Bijen", "Sanam", "Samip", "Biman"};
+            // Query syntax - query expression 
+            var result2 = from x in numbers
+                          where x < 75 && x > 20
+                          select x;
 
-            //Find names that starts with letter 'S' and having length less than 6\
+            string[] names = { "Bijen", "Bipin", "Rojeena", "Sanjana", "Anjana" };
+
+            // Find names that starts with letter 'B' and having length less than 6
             var result3 = from name in names
-                            where name.StartsWith("S") && name.Length < 6
-                            select name;
+                          where name.StartsWith("B") && name.Length < 6
+                          select name;
 
-            //Projections
+            // Projections
             var result4 = from num in numbers
-                            select num * num;
+                          select num * num;
 
-            //Ordering
+            // Ordering
+            var result5 = from num in numbers
+                          orderby num
+                          select num;
 
-            var result5 = from num in numbers       //Ascending
-                            orderby num
-                            select num;
-
-            var result8 = from num in numbers       //Descending
-                            orderby num descending
-                            select num;
-
-              //Partitioning
+            // Partitioning
             var result6 = numbers.Take(5);
-            var result7 = numbers.Skip(1).Take(5);
+            var result7 = numbers.Skip(5).Take(5);
 
-            //Quantifiers
+            // Quantifiers
             var isEvenThere = numbers.Any(num => num % 2 == 0);
-            var areAllEven = numbers.All(num => num % 2 == 0);
-            var is26there = numbers.Contains(5);
+            var areAllEvens = numbers.All(num => num % 2 == 0);
+            var is26there = numbers.Contains(26);
 
-            var result9 = Enumerable.Range(1, 1000); //it gives collection of number from certain range
-            var result10 = Enumerable.Repeat("Hello world", 10); //Repeat for certain number of times -- for this, it repeats for 10 times
+            var result8 = Enumerable.Range(1, 1000);
+            var result9 = Enumerable.Repeat("Hello world", 10);
+
 
             List<Person> people = new List<Person>()
             {
-                new Person() {Id = 1, Firstname = "Susan", Lastname = "Shrestha", Address = "Ktm", Age = 21};
-                new Person() {Id = 2, Firstname = "Sisan", Lastname = "Shrestha", Address = "Bkt", Age = 16};
-                new Person() {Id = 3, Firstname = "Sosan", Lastname = "Shrestha", Address = "Pkh", Age = 20};
-                new Person() {Id = 4, Firstname = "Sysan", Lastname = "Shrestha", Address = "Ktm", Age = 18};
-                new Person() {Id = 5, Firstname = "Snsan", Lastname = "Shrestha", Address = "Bkt", Age = 3};
-                new Person() {Id = 6, Firstname = "Shsan", Lastname = "Shrestha", Address = "Pkh", Age = 17};
-                new Person() {Id = 7, Firstname = "Ssan", Lastname = "Shrestha", Address = "Kathmandu", Age = 18};
+                new Person() {Id = 1, FirstName = "Bijen", LastName = "Shrestha", Address="Bhaktapur", Age = 24},
+                new Person() {Id = 2, FirstName = "Sabin", LastName = "Thapa", Address="ktm", Age = 12},
+                new Person() {Id = 3, FirstName = "A", LastName = "Thapa", Address="ktm", Age = 34},
+                new Person() {Id = 4, FirstName = "B", LastName = "Shrestha", Address="Bhaktapur", Age = 45},
+                new Person() {Id = 5, FirstName = "C", LastName = "Shrestha", Address="Bhaktapur", Age = 11},
+                new Person() {Id = 6, FirstName = "D", LastName = "Lama", Address="ktm", Age = 16},
             };
 
-            //Find all people who live in kathmandu
-            var result11 = from person in people
-                            where person.Address == "Kathmandu"
-                            select person;
 
-            //Find all people who are minors
+            // Find all people who live in kathmandu?
+            var result10 = from person in people
+                           where person.Address == "ktm"
+                           select person;
+            
+            //Find all minors who live in bhaktapur
+            var result11 = from person in people
+                           where person.Age < 18 && person.Address == "Bhaktapur"
+                           select person;
+
 
         }
     }
