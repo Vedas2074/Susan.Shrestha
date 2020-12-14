@@ -5,7 +5,7 @@
    "version": "0.2.0",
    "configurations": [
         {
-            "name": ".NET Core Launch (console)",
+            "name": "CSharpBasics",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
@@ -13,6 +13,20 @@
             "program": "${workspaceFolder}/CSharpBasics/bin/Debug/netcoreapp3.1/CSharpBasics.dll",
             "args": [],
             "cwd": "${workspaceFolder}/CSharpBasics",
+            // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+
+        {
+            "name": "LINQ",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/LINQ/bin/Debug/netcoreapp3.1/LINQ.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/LINQ",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false
